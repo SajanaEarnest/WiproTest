@@ -17,7 +17,27 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //
+    self.window = [self mainWindow];
+    [_window makeKeyAndVisible];
     return YES;
+}
+
+-(UIWindow *)mainWindow {
+    //
+    UIWindow *mainWindow = [[UIWindow alloc]init];
+    mainWindow.rootViewController = [self rootNavigationController];
+    return mainWindow;
+}
+
+-(UINavigationController *)rootNavigationController {
+    //
+    return [[UINavigationController alloc]initWithRootViewController:[self mainViewController]];
+}
+
+-(TCountryIdentityTVC *)mainViewController {
+    //
+    return [[TCountryIdentityTVC alloc]init];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
